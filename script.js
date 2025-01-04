@@ -14,7 +14,7 @@ let horarios = JSON.parse(localStorage.getItem("horarios")) || []; // Recupera o
 
 // Função auxiliar para obter o nome do dia da semana
 const definirDiaSemana = (date) => {
-  const dias = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+  const dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo",];
   return dias[new Date(date).getDay()];
 };
 
