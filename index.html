@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda 2025</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agenda 2025</h1>
+        <button id="addHorario">Adicionar Horário</button>
+        <button id="viewHorario">Horários da semana</button>
+        <button id="viewRendimentos">Rendimentos</button>
+
+        <div id="agendaModal" class="modal hidden">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Adicionar horário</h2>
+                <label for="cliente">Nome da Cliente:</label>
+                <input type="text" id="cliente" placeholder="Ex.: Maria Silva">
+                <label for="horario">Horário:</label>
+                <input type="time" id="horario">
+                <label for="data">Data:</label>
+                <input type="date" id="data">
+                <button id="saveHorario">Salvar</button>
+            </div>
+        </div>
+
+        <div id="horariosList" class="hidden">
+            <h2>Horários da Semana</h2>
+            <ul id="horarios"></ul>
+        </div>
+
+        <div id="rendimentosList" class="hidden">
+            <h2>Rendimentos Mensais</h2>
+            <div id="months"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
