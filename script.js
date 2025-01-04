@@ -14,7 +14,7 @@ let horarios = JSON.parse(localStorage.getItem("horarios")) || []; // Recupera o
 
 // Função auxiliar para obter o nome do dia da semana
 const definirDiaSemana = (date) => {
-  const dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo",];
+  const dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"];
   return dias[new Date(date).getDay()];
 };
 
@@ -60,10 +60,39 @@ viewHorariosBtn.addEventListener("click", () => {
   } else {
     horariosUl.innerHTML = horarios
       .map(
-        (h) =>
-          `<li><strong>${h.data} (${definirDiaSemana(h.data)})</strong> - ${h.horario} - ${h.cliente}</li>`
+        (h, index) => `
+          <li>
+            <strong>${h.data} (${definirDiaSemana(h.data)})</strong> - ${h.horario} - ${h.cliente}
+            <button class="editBtn" data-index="${index}">✏️</button>
+            <button class="deleteBtn" data-index="${index}">❌</button>
+          </li>`
       )
       .join("");
+  }
+});
+
+// Editar Horário
+horariosUl.addEventListener("click", (e) => {
+  if (e.target.classList.contains("editBtn")) {
+    const index = e.target.getAttribute("data-index");
+    const horario = horarios[index];
+    document.getElementById("cliente").value = horario.cliente;
+    document.getElementById("horario").value = horario.horario;
+    document.getElementById("data").value = horario.data;
+    modal.classList.remove("hidden");
+
+    // Remover o horário original
+    horarios.splice(index, 1);
+    localStorage.setItem("horarios", JSON.stringify(horarios));
+  } else if (e.target.classList.contains("deleteBtn")) {
+    const index = e.target.getAttribute("data-index");
+    const confirmar = confirm("Você realmente deseja apagar este horário?");
+    if (confirmar) {
+      horarios.splice(index, 1);
+      localStorage.setItem("horarios", JSON.stringify(horarios));
+      alert("Horário apagado com sucesso!");
+      viewHorariosBtn.click(); // Atualiza a lista de horários
+    }
   }
 });
 
