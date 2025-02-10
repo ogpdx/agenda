@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Agenda 2025</h1>
         <button id="addHorario">Adicionar Horário</button>
-        <button id="viewHorario">Horários da semana</button>
+        <button id="viewHorario">Horários da Semana</button>
         <button id="viewRendimentos">Rendimentos</button>
 
         <div id="agendaModal" class="modal hidden">
@@ -19,22 +19,40 @@
                 <h2>Adicionar horário</h2>
                 <label for="cliente">Nome da Cliente:</label>
                 <input type="text" id="cliente" placeholder="Ex.: Maria Silva">
-                <label for="horario">Horário:</label>
-                <input type="time" id="horario">
                 <label for="data">Data:</label>
                 <input type="date" id="data">
+                <label for="horario">Horário:</label>
+                <input type="time" id="horario">
+                <label for="tipoUnha">Tipo de Unha:</label>
+                <select id="tipoUnha">
+                <option value="Pé e Mão">Pé e Mão</option>
+                <option value="Mão">Mão</option>
+                <option value="Pé">Pé</option>
+                <option value="SPA">SPA</option>
+                </select>
                 <button id="saveHorario">Salvar</button>
             </div>
         </div>
 
         <div id="horariosList" class="hidden">
             <h2>Horários da Semana</h2>
-            <ul id="horarios"></ul>
+            <div class="grid-container" id="horariosGrid"></div>
         </div>
 
         <div id="rendimentosList" class="hidden">
             <h2>Rendimentos Mensais</h2>
-            <div id="months"></div>
+            <label for="mesSelector">Selecione o mês:</label>
+            <select id="mesSelector"></select>
+            <h3>Total Faturado: R$ <span id="totalFaturamento">0,00</span></h3>
+            <div class="grid-container" id="rendimentosGrid"></div>
+        </div>
+    </div>
+
+    <div id="detalhesModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeDetalhes" class="close">&times;</span>
+            <h2>Detalhes do Horário</h2>
+            <p id="detalhesInfo"></p>
         </div>
     </div>
 
