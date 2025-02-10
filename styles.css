@@ -15,11 +15,11 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 90%;
+    max-width: 800px;
 }
 
-h1 {
-    font-size: 24px;
+h1, h2, h3 {
     color: #333;
 }
 
@@ -39,15 +39,6 @@ button {
 
 button:hover {
     background-color: #4a1070;
-}
-
-#closeHorarios {
-    margin-top: 10px;
-    background-color: #dc3545;
-}
-
-#closeHorarios:hover {
-    background-color: #a71d2d;
 }
 
 .modal {
@@ -87,7 +78,7 @@ label {
     margin: 10px 0 5px;
 }
 
-input {
+input, select {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -95,39 +86,58 @@ input {
     border-radius: 4px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.horarios-grid, .rendimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
 }
 
-li {
+.horario-item {
     background: #f9f9f9;
-    margin: 5px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-button.editBtn,
-button.deleteBtn {
-    background: none;
-    border: none;
+    text-align: center;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.horario-item:hover {
+    background: #e0e0e0;
+}
+
+.rendimentos-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.rendimento-total {
     font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #6a1b9a;
 }
 
-button.editBtn {
-    color: #ffa500;
+.mes-selector {
+    margin-bottom: 10px;
 }
 
-button.deleteBtn {
-    color: #dc3545;
-}
-
-button.editBtn:hover,
-button.deleteBtn:hover {
-    opacity: 0.7;
-}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pagination {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .pagination button {
+    margin: 0 5px;
+  }
